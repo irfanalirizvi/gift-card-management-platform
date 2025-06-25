@@ -30,7 +30,7 @@ CREATE TABLE gift_cards (
 
 CREATE TABLE gift_card_transactions (
     transaction_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    card_id CHAR(7),  -- FK removed or made nullable with SET NULL
+    card_id CHAR(7),  
     user_id INT NULL,
     transaction_type ENUM('redemption', 'recharge', 'transfer_out', 'transfer_in') NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
@@ -64,7 +64,7 @@ BEGIN
     RETURN card;
 END //
 
-										#Generate single card 
+					#Generate single card 
 
 -- Generate single gift card
 CREATE PROCEDURE generate_gift_card (
@@ -378,7 +378,7 @@ END //
 
 DELIMITER ;
 
-													   #Assign Card to specific user
+                                                      #Assign Card to specific user
 DELIMITER //
 
 CREATE PROCEDURE assign_gift_card_to_user (
